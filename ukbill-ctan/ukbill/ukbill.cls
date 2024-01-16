@@ -16,7 +16,7 @@
 % The Current Maintainer of this work is Elijah Z Granet
 
 
-\LoadClass[a4paper,12pt]{memoir}
+\LoadClass[12pt,a4paper]{memoir}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % schedule divisions
@@ -103,16 +103,6 @@
 \newcommand{\printbillyear}{\@billyear}
 \def\@billyear{\@latex@warning@no@line{No \noexpand\billyear given}}
 \def\@billtitle{\@latex@warning@no@line{No \noexpand\billtitle given}}
-\newcommand{\humanrights}[1]{\def\@humanrights{#1}}
-\newcommand{\printhumanrights}{\@humanrights}
-\def\@humanrights{\@latex@warning@no@line{No \noexpand\humanrightsgiven}
-}
-\newcommand{\exptitle}[1]{\def\@exptitle{#1}}
-\newcommand{\printexptitle}{\@exptitle}
-\def\@exptitle{\@latex@warning@no@line{No \noexpand\exptitle given}}
-\newcommand{\exptext}[1]{\def\@exptext{#1}}
-\newcommand{\printexptext}{\@exptext}
-\def\@exptext{\@latex@warning@no@line{No \noexpand\exptext given}}
 \newcommand{\billnum}[1]{\def\@billnum{#1}}
 \newcommand{\printbillnum}{\@billnum}
 \def\@billnum{\@latex@warning@no@line{No \noexpand\billnum given}}
@@ -510,7 +500,7 @@ leftmargin=0em,rightmargin=0em,label=]%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\enactingformula}{
-\intl{B}{e it enacted} by the King's most Excellent Majesty, by and with the advice and consent of the Lords Spiritual and Temporal, and Commons, in this present Parliament assembled, and by the authority of the same, as follows:---}
+\intl{}{Be} it enacted by Parliament in the Seventy-fifth Year of the Republic of India as follows:---}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -549,23 +539,7 @@ the authority of the same, as follows:―
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginDocument{\emergencystretch 3em
-\sloppy
-\OnehalfSpacing
-\pagestyle{front}
-\pagenumbering{roman}
 \maketitle
-\medskip
-\extfont
-\begin{center}\scshape\MakeUppercase{\printexptitle}\end{center}
-
-\printexptext
-\medskip
-
-\begin{center}\scshape EUROPEAN CONVENTION ON HUMAN RIGHTS\end{center}
-
-\printhumanrights
-\normalfont
-\clearpage\maketitle
 \begin{KeepFromToc}
 \normalfont\normalsize
 \tableofcontents
@@ -579,76 +553,18 @@ the authority of the same, as follows:―
 	\scshape a
 	\medskip
 	
-	\normalfont\Huge\bfseries B\hspace{.5ex}I\hspace{.5ex}L\hspace{.5ex}L
+	\normalfont BILL
 	
 	\medskip
-	
-	\normalfont\normalsize\scshape to\normalfont
 	
 \end{center}
 
-	\medskip
-
-\noindent\footnotesize\extfont\printbillto\normalsize \normalfont
-
+\begin{center}
+  \textit{\printbillto}
+\end{center}
 \medskip 
 
 \enactingformula
 
 \medskip
-
-
-
-}
-
-
-\AtEndDocument{\cleardoublepage
-
-
-    \setcounter{page}{0}
-    \pagenumbering{arabic}
-    \setcounter{page}{1}
-\thispagestyle{front}
-
-  \begin{center}
-  {\Huge\textbf{\title}}\\\rule{\textwidth}{1pt}\\\rule[16pt]{\textwidth}{2pt}
-  \end{center}
-
-\begin{center}
-	\normalfont\scshape a
-	\medskip
-	
-	\normalfont\Huge\bfseries B\hspace{.5ex}I\hspace{.5ex}L\hspace{.5ex}L
-	
-	\vskip 3ex
-	\end{center}
-	
-\normalsize \printbillto
-	\vskip 3ex
-	\begin{center}
-	
-\normalsize\normalfont\itshape	Presented by \printdrafter
-
-\vskip 3ex
-
-\rule{.45\textwidth}{1pt}
-\vspace{1ex}
-
-\begin{minipage}{.4\textwidth}\centering
-\itshape Ordered, by\normalfont\ \printdrafter\itshape\ to be Printed, {\normalfont\addordinal{\printbillday}} \textit{\printbillmonth} \printbillyear.
-\end{minipage}
-
-\vspace{1ex} 
-
-\rule{.45\textwidth}{1pt}
-
-\vskip 5ex
-
-\normalfont\footnotesize\printbillcopyright
-
-
-\vskip 1ex 
-
-\normalfont\scshape\MakeUppercase{Published By \printpublishedby}
-\end{center}
 }
