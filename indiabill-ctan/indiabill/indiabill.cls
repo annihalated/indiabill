@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
-\def\ukbillversionnumber{1.2.0}
-\ProvidesClass{ukbill}[2024-01-06 A Class for UK legislation]
+\def\indiabillversionnumber{1.2.0}
+\ProvidesClass{indiabill}[2024-01-06 A Class for UK legislation]
   % !TeX program = lualatex                                   
 % !TeX encoding = utf8
 % This work may be distributed and/or modified under the 
@@ -16,7 +16,7 @@
 % The Current Maintainer of this work is Elijah Z Granet
 
 
-\LoadClass[12pt,a4paper]{memoir}
+\LoadClass[a4paper]{memoir}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % schedule divisions
@@ -73,12 +73,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
-\newcommand{\drafter}[1]{\def\@drafter{#1}}
-\newcommand{\printdrafter}{\@drafter}
-\def\@drafter{\@latex@warning@no@line{No \noexpand\drafter given}}
-\newcommand{\billcopyright}[1]{\def\@billcopyright{#1}}
-\newcommand{\printbillcopyright}{\@billcopyright}
-\def\@billcopyright{\@latex@warning@no@line{No \noexpand\billcopyright given}}
 \newcommand{\billto}[1]{\def\@billto{#1}}
 \newcommand{\printbillto}{\@billto}
 \def\@billto{\@latex@warning@no@line{No \noexpand\billto given}}
@@ -88,9 +82,6 @@
 %\newcommand{\billto}[1]{\def\@billto{#1}}
 
 
-\newcommand{\publishedby}[1]{\def\@publishedby{#1}}
-\newcommand{\printpublishedby}{\@publishedby}
-\def\@publishedby{\@latex@warning@no@line{No \noexpand\publishedby given}}
 \newcommand{\billtitle}[1]{\def\@billtitle{#1}}
 \newcommand{\printbilltitle}{\@billtitle}
 \newcommand{\billday}[1]{\def\@billday{#1}}
@@ -330,7 +321,7 @@
 \setlength{\midchapskip}{0pt}
 \setlength{\afterchapskip}{12pt}
 \setbeforesecskip{-1em}
-\setaftersecskip{-1em}
+% \setaftersecskip{-1em}
 \setbeforesubsecskip{-1em}
 \setaftersubsecskip{-1em}
 \renewcommand*{\thesection}{\arabic{section}}
@@ -345,7 +336,7 @@
 \titleformat{\subsubsection}[display]
   {\normalfont\centering\scshape}{Part \thesubsubsection}{5pt}{}
 
-\setsecheadstyle{\centering\bfseries}
+\setsecheadstyle{\bfseries}
 \renewcommand{\part}[1]{\stepcounter{part}\markright{#1}
 \begin{center}
 \normalfont\normalsize\itshape\printchaptertitle{#1}\normalfont\normalsidze\\\end{center}
@@ -504,37 +495,6 @@ leftmargin=0em,rightmargin=0em,label=]%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%enacting option
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareOption{private}{
-\makeatletter
-\renewcommand{\enactingformula}{
-\intl{W}{hereas}---
-
-\hspace{2em}\begin{minipage}{.75\textwidth}
-
-\printwhereas
-\end{minipage}
-
-\medskip
-
-\intl{M}{ay} it therefore please Your Majesty that it may be enacted, and be it enacted, by
-the King’s Most Excellent Majesty, by and with the advice and consent of the Lords
-Spiritual and Temporal, and Commons, in this present Parliament assembled, and by
-the authority of the same, as follows:―
-}
-
-
-\makeatother
-
-}
-
-\ProcessOptions\relax
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % begindoc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -545,7 +505,6 @@ the authority of the same, as follows:―
 \tableofcontents
 \end{KeepFromToc}
 
-\vskip 3ex
 \mainmatter
 \pagenumbering{arabic}
 \pagestyle{bill}\thispagestyle{billfirst}
